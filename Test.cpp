@@ -9,17 +9,17 @@ using namespace std;
 TEST_CASE("add father") {
    Tree M("mika");
    M.addFather("mika","Yitzak").addFather("Yitzak","Israel").addFather("Israel","Yaakov");
-      CHECK((tree.head->father->name).compare("Yitzak") == 0);
-    CHECK((tree.head->father->father->name).compare("Israel") == 0);
-   CHECK((tree.head->father->father->father->name).compare("Yaakov") == 0);
+      CHECK((M->father->name).compare("Yitzak") == 0);
+    CHECK((M->father->father->name).compare("Israel") == 0);
+   CHECK((M->father->father->father->name).compare("Yaakov") == 0);
 
 }
 TEST_CASE("add father") {
    Tree M("mika");
    M.addMother("mika","Stella").addFather("Stella","Michal").addFather("Michal","Tehila");
-    CHECK((tree.head->mother->name).compare("Stella") == 0);
-    CHECK((tree.head->mothe->mothe->name).compare("Michal") == 0);
-   CHECK((tree.head->mothe->mothe->mothe->name).compare("Tehila") == 0);
+    CHECK((M->mother->name).compare("Stella") == 0);
+    CHECK((M->mothe->mothe->name).compare("Michal") == 0);
+   CHECK((M->mothe->mothe->mothe->name).compare("Tehila") == 0);
 
 }
 
