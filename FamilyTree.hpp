@@ -9,7 +9,7 @@ namespace family{
     using namespace std;
     class Tree
 {
-private:
+public:
     string name;
     int count;
     Tree *father;
