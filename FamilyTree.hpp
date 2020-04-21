@@ -7,10 +7,7 @@
 
 namespace family{
     using namespace std;
-    class node{
-        string name;
-        
-    }
+
     class Tree
 {
 public:
@@ -18,6 +15,7 @@ public:
     int count;
     Tree *father;
     Tree *mother;
+    string gander;
 
 public:
     Tree();
@@ -33,7 +31,8 @@ public:
     string relation(string relation);
     string find(string relation);
     void remove(string name);
-    Tree* Tree::add(Tree *cur,string name)
+    Tree* Tree::Find(Tree *cur,string name);
+    void print(Tree *cur);
 };
 
 }
