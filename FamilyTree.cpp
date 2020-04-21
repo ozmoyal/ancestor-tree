@@ -13,7 +13,7 @@ Tree::Tree(string name){
 }
 
 Tree &Tree::addFather(string name , string fatherName){
-    Tree* p=add(this,name);
+    Tree* p=Find(this,name);
     if(p==nullptr) throw runtime_error("ERR  "+name+"dosen't exiest" );
     else if(p->father!=nullptr) throw runtime_error("ERR  "+name+"have a father" );
     else{
@@ -97,7 +97,7 @@ void Tree::print(Tree *cur)
     if(cur==nullptr) return;
     print(cur->father);
     print(cur->mother);
-    printf(cur->name);
+    printf("--->,%s",cur->name);
 }
 }
 ;
