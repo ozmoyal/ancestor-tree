@@ -32,6 +32,7 @@ public:
     string find(string relation);
     void remove(string name);
     Tree* Tree::Find(Tree *cur,string name);
+    void Tree::helpRemove(Tree *cur)
     void print(Tree *cur);
 };
 

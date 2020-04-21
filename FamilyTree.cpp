@@ -50,29 +50,45 @@ string Tree::relation(string name){
         if(p->gander=="male") return "father";
         else return "mather";
     }
-    if((p->count==2))
-    {
-         if(p->gander=="male") return "grandfather";
-        else return "grandmather";
-    }
-    int i=p->count;
     string ans="";
-    while(i>=0) 
+    int i=p->count;
+    while(i>=2) 
     {
-        ans=ans+"grand- ";
+        ans=ans+"great- ";
         i--;
     }
-       if(p->gander=="male") ans=ans+ "father";
-        else return ans=ans+"mather";
+       if(p->gander=="male") ans=ans+ "grandfather";
+        else return ans=ans+"grandmather";
         return ans;
 }
 
 
-string Tree::find(string name){
+string Tree::find(string relation){
+    if(relation.compare("mother")==0)
+    {
+    if(this->mother==nullptr)throw runtime_error("ERR  "+relation+"dosen't exiest" ); 
+    else return this->mother->name;
+    }
+      if(relation.compare("father")==0)
+    {
+    if(this->father==nullptr)throw runtime_error("ERR  "+relation+"dosen't exiest" ); 
+    else return this->father->name;
+    }
+  
+    
+    
+    
+
+    )
+
+    if(relation=="father") return this->mother->name;
+
  
 }
 
 void Tree::remove(string name){
+    Tree* p=Find(this,name);
+    helpRemove(p);
 
 }
 Tree* Tree::Find(Tree *cur,string name)
@@ -91,7 +107,13 @@ Tree* Tree::Find(Tree *cur,string name)
     return nullptr;
     }
 
-
+void Tree::helpRemove(Tree *cur)
+{
+    if(cur==nullptr) return ;
+    helpRemove(cur->father);
+    helpRemove(cur->mother);
+    cur=nullptr;
+}
 void Tree::print(Tree *cur)
 {
     if(cur==nullptr) return;
