@@ -7,6 +7,10 @@
 
 namespace family{
     using namespace std;
+    class node{
+        string name;
+        
+    }
     class Tree
 {
 public:
@@ -29,6 +33,7 @@ public:
     string relation(string relation);
     string find(string relation);
     void remove(string name);
+    Tree* Tree::add(Tree *cur,string name)
 };
 
 }
