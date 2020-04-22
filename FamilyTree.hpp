@@ -5,38 +5,72 @@
 
 #include <string>
 
-namespace family{
+namespace family {
     using namespace std;
 
-    class Tree
-{
-public:
-    string name;
-    int count;
-    Tree *father;
-    Tree *mother;
-    string gander;
-    string related;
+    class Tree {
+    public:
+        string name;
+        int count;
+        Tree *father;
+        Tree *mother;
+        string gander;
+        string related;
 
-public:
-    Tree();
-    ~Tree()
-    {
-        delete father;
-        delete mother;
-    }
-    Tree(string name);
-    Tree &addFather(string name , string relation);
-    Tree &addMother(string name , string relation);
-    void display();
-    string relation(string relation);
-    string find(string relation);
-    void remove(string name);
-    Tree* Tree::FindByName(Tree *cur,string name);
-     Tree* Tree::FindByRelated(Tree *cur,string relation);
-    void Tree::helpRemove(Tree *cur);
-    void print(Tree *cur);
-    string Tree::findrelated(Tree* p);
-};
+    public:
+        Tree();
+
+        ~Tree() {
+            delete father;
+            delete mother;
+        }
+
+        Tree(string name);
+
+        int getDepth() {
+            return this->count;
+        }
+
+        string getType() {
+            return this->related;
+        }
+
+        string getName() {
+            return this->name;
+        }
+
+//return pointer to the mother of the curr sub tree
+        Tree *getMother() {
+            return this->mother;
+        }
+
+// returns pointer to the father of the curr sub tree
+        Tree *getFather() {
+            return this->father;
+        }
+
+        Tree &addFather(string name, string relation);
+
+        Tree &addMother(string name, string relation);
+
+        void display();
+
+        string relation(string relation);
+
+        string find(string relation);
+
+        void remove(string name);
+
+        Tree *FindByName(Tree *cur, string name);
+
+        Tree *FindByRelated(Tree *cur, string relation);
+
+        void helpRemove(Tree *cur);
+
+        void print(Tree *cur);
+
+        string findrelated(Tree *p);
+    };
+}
 
 //#endif
