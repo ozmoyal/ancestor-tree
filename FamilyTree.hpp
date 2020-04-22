@@ -16,6 +16,7 @@ public:
     Tree *father;
     Tree *mother;
     string gander;
+    string related;
 
 public:
     Tree();
@@ -31,11 +32,11 @@ public:
     string relation(string relation);
     string find(string relation);
     void remove(string name);
-    Tree* Tree::Find(Tree *cur,string name);
-    void Tree::helpRemove(Tree *cur)
+    Tree* Tree::FindByName(Tree *cur,string name);
+     Tree* Tree::FindByRelated(Tree *cur,string relation);
+    void Tree::helpRemove(Tree *cur);
     void print(Tree *cur);
+    string Tree::findrelated(Tree* p);
 };
-
-}
 
 //#endif
